@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-public void sjfScheduler(int [] arrival, int [] burst, int [] priority)
+void sjfScheduler(int [] arrival, int [] burst, int [] priority)
 {
 	cout << "This is the shortest job first scheduler" << endl;
 	int length = sizeof(arrival)/sizeof(arr[0]);

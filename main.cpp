@@ -1,5 +1,9 @@
 #include <iostream>
+#include "SJF.cpp"
+#include "FCFS.cpp"
+
 using namespace std;
+
 int main()
 {
 	int processNum;
