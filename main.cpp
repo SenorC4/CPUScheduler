@@ -1,5 +1,7 @@
 #include <iostream>
 #include "SJF.h"
+#include "FCFS.h"
+
 using namespace std;
 
 int main()
@@ -10,10 +12,10 @@ int main()
 	int throughPutTime;
 	cout << "Please enter the throughput time for testing";
 	cin >> throughPutTime;
-	int arrivalTimes[3];
-	int burstTimes[3];
-	int priorities[3];
-	for(int i = 0; i < 3; i++)
+	int arrivalTimes[processNum];
+	int burstTimes[processNum];
+	int priorities[processNum];
+	for(int i = 0; i < processNum; i++)
 	{
 		int arrival,burst,priority;
 		cin >> arrival >> burst >> priority;
@@ -21,5 +23,6 @@ int main()
 		burstTimes[i] = burst;
 		priorities[i] = priority;
 	}
-	sjfScheduler(arrivalTimes, burstTimes, priorities);
+	sjfScheduler(arrivalTimes, burstTimes, priorities, processNum);
+	fcfsScheduler(arrivalTimes, burstTimes, priorities, processNum);
 }

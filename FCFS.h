@@ -1,1 +1,1 @@
-void fcfsSheduler(int arrival[], int burst[], int priority[]);
+void fcfsScheduler(int arrival[], int burst[], int priority[], int length);

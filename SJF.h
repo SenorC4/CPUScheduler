@@ -1,1 +1,1 @@
-void sjfScheduler(int arrival[], int burst[], int priority[]);
+void sjfScheduler(int arrival[], int burst[], int priority[], int length);
