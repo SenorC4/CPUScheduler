@@ -1,27 +1,25 @@
 #include <iostream>
-#include "SJF.cpp"
-#include "FCFS.cpp"
-
+#include "SJF.h"
 using namespace std;
 
 int main()
 {
 	int processNum;
-	cout >> "Please enter the number of processes to be considered.";
-	cin << processNum;
+	cout << "Please enter the number of processes to be considered.";
+	cin >> processNum;
 	int throughPutTime;
-	cout >> "Please enter the throughput time for testing";
-	cin << throughPutTime;
-	int arrivalTimes[10];
-	int burstTimes[10];
-	int priorities[10];
-	for(int i = 0; i < 10; i++)
+	cout << "Please enter the throughput time for testing";
+	cin >> throughPutTime;
+	int arrivalTimes[3];
+	int burstTimes[3];
+	int priorities[3];
+	for(int i = 0; i < 3; i++)
 	{
 		int arrival,burst,priority;
-		cin << arrival << burst << priority;
-		arrivalTimes.at(i) = arrival;
-		burstTimes.at(i) = burst;
-		priorities.at(i) = priority;
+		cin >> arrival >> burst >> priority;
+		arrivalTimes[i] = arrival;
+		burstTimes[i] = burst;
+		priorities[i] = priority;
 	}
-	return 0;
+	sjfScheduler(arrivalTimes, burstTimes, priorities);
 }

@@ -5,9 +5,10 @@
 
 using namespace std;
 
-void fcfsScheduler(int arival[], int burst[], int priority[]){
+void fcfsScheduler(int arrival[], int burst[], int priority[]){
 	cout << "fcfs works";
-	for(int i = 0; i < sizeof arival; i++){
-		cout << "Arrival time: " << arival[i] << " Burst: " << burst[i] << " Priority: " << priority[i] << endl;
+	int length = sizeof(arrival) + 1;
+	for(int i = 0; i < length; i++){
+		cout << "Arrival time: " << arrival[i] << " Burst: " << burst[i] << " Priority: " << priority[i] << endl;
 	}
 }

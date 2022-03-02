@@ -5,8 +5,8 @@ using namespace std;
 void sjfScheduler(int arrival[], int burst[], int priority[])
 {
 	cout << "This is the shortest job first scheduler" << endl;
-	int length = sizeof(arrival) + 1;
-	for (int i = 0; i < length; i++)
+	int length = sizeof(arrival);
+	for (int i = 0; i < 3; i++)
 	{
 		cout << arrival[i] << "    " << burst[i] << "    " << priority[i]  << endl;
 	}
