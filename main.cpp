@@ -13,18 +13,17 @@ int main()
 	cin >> throughPutTime;
 	int arrivalTimes[processNum];
 	int burstTimes[processNum];
-	int priorities[processNum];
 	for(int i = 0; i < processNum; i++)
 	{
-	cout << "Enter the processes arrival time followed by its burst time and the finally its priority: ";
-		int arrival,burst,priority;
-		cin >> arrival >> burst >> priority;
+	cout << "Enter the processes arrival time followed by its burst time: ";
+		int arrival,burst;
+		cin >> arrival >> burst;
 		arrivalTimes[i] = arrival;
 		burstTimes[i] = burst;
-		priorities[i] = priority;
 	}
 	cout << endl;
-	sjfScheduler(arrivalTimes, burstTimes, priorities, processNum);
+	fcfsScheduler(arrivalTimes, burstTimes, processNum);
+	sjfScheduler(arrivalTimes, burstTimes, processNum, throughPutTime);
 	cout << endl;
-	fcfsScheduler(arrivalTimes, burstTimes, priorities, processNum);
+	//fcfsScheduler(arrivalTimes, burstTimes, priorities, processNum);
 }
