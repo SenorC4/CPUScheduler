@@ -27,10 +27,12 @@ void fcfsScheduler(int arrival[], int burst[],  int length, int throughPutTime){
 
 	for(int i = 1; i < length; i++){
 		if(arrival[i] < (arrival[i-1] + burst[i-1])){
-			startTimes.at(i) = (arrival[i-1] + burst[i-1]);
+			startTimes.at(i) = (startTimes.at(i-1) + burst[i-1]);
 		}else{
 			startTimes.at(i) = (arrival[i]);
 		}
+
+		//cout << "Start : " << i << " " << startTimes.at(i);
 	}
 
 	vector<int> waitTimes(length);
@@ -38,7 +40,11 @@ void fcfsScheduler(int arrival[], int burst[],  int length, int throughPutTime){
 
 	//CALCULATE WAIT TIMES
 	for(int i = 1; i < length; i++){
-		waitTimes.at(i) = (arrival[i] + burst[i] - arrival[i]);
+		waitTimes.at(i) = (startTimes.at(i-1) + burst[i-1] - arrival[i]);
+		if(waitTimes.at(i) < 0){
+			waitTimes.at(i) = 0;
+		}
+
 	}
 
 	//calc longest wait
