@@ -15,14 +15,14 @@ int main()
 	int burstTimes[processNum];
 	for(int i = 0; i < processNum; i++)
 	{
-	cout << "Enter the processes arrival time followed by its burst time: ";
+		cout << "Enter the processes arrival time followed by its burst time: ";
 		int arrival,burst;
 		cin >> arrival >> burst;
 		arrivalTimes[i] = arrival;
 		burstTimes[i] = burst;
 	}
 	cout << endl;
-	fcfsScheduler(arrivalTimes, burstTimes, processNum);
+	fcfsScheduler(arrivalTimes, burstTimes, processNum, throughPutTime);
 	sjfScheduler(arrivalTimes, burstTimes, processNum, throughPutTime);
 	cout << endl;
 	//fcfsScheduler(arrivalTimes, burstTimes, priorities, processNum);

@@ -1,0 +1,70 @@
+//Author Luke LeCain
+//Scheduler project OS
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+void fcfsScheduler(int arrival[], int burst[],  int length, int throughPutTime){
+	cout << "This is the FCFS scheduler:" << endl;
+
+	for(int i = 0; i < length; i++){
+		cout << "Arrival time: " << arrival[i] << " Burst: " << burst[i] << endl;
+	}
+
+	vector<int> startTimes(length);
+	startTimes.push_back(0);
+
+	for(int i = 1; i < length; i++){
+		//if(i == 0){
+		//	startTimes.push_back(0);
+		//}else{
+		startTimes.push_back(startTimes.at(i-1) + burst[i-1]);
+		//}
+	}
+
+	int endTime = arrival[arrival[length]] + burst[length];
+
+	vector<int> waitTimes;
+
+	for(int i = 0; i < length; i++){
+		if(i == 0){
+			waitTimes.push_back(0);
+		}else{
+			waitTimes.push_back(startTimes.at(i) - arrival[i]);
+		}
+	}
+
+	//get average wait time and Longest Wait
+	int aWt = 0;
+	int longest = 0;
+
+	for(int i = 0; i< length; i++){
+		aWt += waitTimes.at(i);
+		if(waitTimes.at(i) > longest){
+			longest == waitTimes.at(i);
+		}
+	}
+
+	//divide the sum of waits by the number of processes
+	aWt = aWt/length;
+
+	//calculate average turnaround time
+	int atat = 0;
+	for(int i = 0; i < length; i++){
+		atat += waitTimes.at(i);
+		atat += burst[i];
+	}
+	//divide the sum by the number of processes
+	atat = atat/length;
+
+	//print out the results
+	cout << "The throuput is: " ;
+	cout << "The shortest wait time is 0";
+	cout << "The longest wait time is " << longest;
+	cout << "The average wait time is " << aWt;
+	cout << "The average turnaround time is " << atat;
+
+	cout << endl;
+}
