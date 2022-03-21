@@ -77,11 +77,6 @@ void sjfScheduler(int arrival[], int burst[], int length, int throughputTimeSlic
 		waitVec.push_back(wait);//adding the wait time to our wait vector
 	}
 
-	/*for(int i = 0; i < vectorForThroughput.size(); i++)
-	{
-		cout << vectorForThroughput.at(i) << "	";
-	}
-		cout << endl;*/
 	int shortestWait = 0;//shortest wait is always 0
 	int longestWait = 0;//holds the longest wait from our wait vector
 
@@ -91,7 +86,6 @@ void sjfScheduler(int arrival[], int burst[], int length, int throughputTimeSlic
 		if (longestWait < waitVec.at(i))//sees if the current longest wait is shorter than item i in the vector
 		{
 			longestWait = waitVec.at(i);//if so it's the new longest wait
-			cout << waitVec.at(i) << endl;
 		}
 	}
 
@@ -123,11 +117,7 @@ void sjfScheduler(int arrival[], int burst[], int length, int throughputTimeSlic
 		}
 	}
 
-	cout << " Arrival        Burst         Wait" << endl;
-	for (int i = 0; i < length; i++)
-	{
-		cout << "   " << arrival[i] << "             " << burst[i] << "             " << waitVec.at(i) << endl;
-	}
+
 	cout << "The throughput is " << throughput << endl;
 	cout << "The shortest wait time is " << shortestWait << endl << "The longest wait time is " << longestWait << endl;
 	cout << "The average wait time is " << averageWaitTime << endl << "The average turnaround time is " << averageTurnaroundTime << endl;
