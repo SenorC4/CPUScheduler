@@ -1,3 +1,4 @@
+
 //This is the algorithm for the Shortest Job First
 #include <iostream>
 #include <vector>
@@ -52,7 +53,7 @@ void sjfScheduler(int arrival[], int burst[], int length, int throughputTimeSlic
 	}
 
 	//variable that holds the current wait value that we insert into the wait vector below
-	int wait;
+	int wait = 0;
 	vector<int> vectorForThroughput;// vector that takes in the burst times that have previous idle times added to them
 	vectorForThroughput.push_back(burst[0]);
 
@@ -82,7 +83,7 @@ void sjfScheduler(int arrival[], int burst[], int length, int throughputTimeSlic
 	}
 		cout << endl;*/
 	int shortestWait = 0;//shortest wait is always 0
-	int longestWait;//holds the longest wait from our wait vector
+	int longestWait = 0;//holds the longest wait from our wait vector
 
 	//for loop that loops through our wait vector
 	for (int i = 0; i < waitVec.size(); i++)
@@ -90,6 +91,7 @@ void sjfScheduler(int arrival[], int burst[], int length, int throughputTimeSlic
 		if (longestWait < waitVec.at(i))//sees if the current longest wait is shorter than item i in the vector
 		{
 			longestWait = waitVec.at(i);//if so it's the new longest wait
+			cout << waitVec.at(i) << endl;
 		}
 	}
 
