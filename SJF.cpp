@@ -79,7 +79,6 @@ void sjfScheduler(int arrival[], int burst[], int length, int throughputTimeSlic
 
 	int shortestWait = 0;//shortest wait is always 0
 	int longestWait = 0;//holds the longest wait from our wait vector
-
 	//for loop that loops through our wait vector
 	for (int i = 0; i < waitVec.size(); i++)
 	{
@@ -94,9 +93,13 @@ void sjfScheduler(int arrival[], int burst[], int length, int throughputTimeSlic
 	{
 		totalWait += waitVec.at(i);//adds all the waits together from our wait vector
 	}
+	if (totalWait < 0.001 || totalWait > 999999999)
+	{
+		totalWait = 0;
+	}
 	double averageWaitTime = totalWait/length;//finds the average of all waits
-
 	double totalBurst;//sam double variable for precise calculation, but for bursts
+
 	for (int i = 0; i < length; i++)
 	{
 		totalBurst += burst[i];//adds all bursts in the array
@@ -116,7 +119,7 @@ void sjfScheduler(int arrival[], int burst[], int length, int throughputTimeSlic
 			throughput++;//if so adds one to throughput
 		}
 	}
-
+	
 
 	cout << "The throughput is " << throughput << endl;
 	cout << "The shortest wait time is " << shortestWait << endl << "The longest wait time is " << longestWait << endl;
